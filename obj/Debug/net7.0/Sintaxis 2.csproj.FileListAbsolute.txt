@@ -1,0 +1,14 @@
+C:\Users\Adolfo\Documents\Adolfo\ITQ\5to semestre\Lenguajes y automatas\Unidad 1\Sintaxis 2\bin\Debug\net7.0\Sintaxis 2.exe
+C:\Users\Adolfo\Documents\Adolfo\ITQ\5to semestre\Lenguajes y automatas\Unidad 1\Sintaxis 2\bin\Debug\net7.0\Sintaxis 2.deps.json
+C:\Users\Adolfo\Documents\Adolfo\ITQ\5to semestre\Lenguajes y automatas\Unidad 1\Sintaxis 2\bin\Debug\net7.0\Sintaxis 2.runtimeconfig.json
+C:\Users\Adolfo\Documents\Adolfo\ITQ\5to semestre\Lenguajes y automatas\Unidad 1\Sintaxis 2\bin\Debug\net7.0\Sintaxis 2.dll
+C:\Users\Adolfo\Documents\Adolfo\ITQ\5to semestre\Lenguajes y automatas\Unidad 1\Sintaxis 2\bin\Debug\net7.0\Sintaxis 2.pdb
+C:\Users\Adolfo\Documents\Adolfo\ITQ\5to semestre\Lenguajes y automatas\Unidad 1\Sintaxis 2\obj\Debug\net7.0\Sintaxis 2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Adolfo\Documents\Adolfo\ITQ\5to semestre\Lenguajes y automatas\Unidad 1\Sintaxis 2\obj\Debug\net7.0\Sintaxis 2.AssemblyInfoInputs.cache
+C:\Users\Adolfo\Documents\Adolfo\ITQ\5to semestre\Lenguajes y automatas\Unidad 1\Sintaxis 2\obj\Debug\net7.0\Sintaxis 2.AssemblyInfo.cs
+C:\Users\Adolfo\Documents\Adolfo\ITQ\5to semestre\Lenguajes y automatas\Unidad 1\Sintaxis 2\obj\Debug\net7.0\Sintaxis 2.csproj.CoreCompileInputs.cache
+C:\Users\Adolfo\Documents\Adolfo\ITQ\5to semestre\Lenguajes y automatas\Unidad 1\Sintaxis 2\obj\Debug\net7.0\Sintaxis 2.dll
+C:\Users\Adolfo\Documents\Adolfo\ITQ\5to semestre\Lenguajes y automatas\Unidad 1\Sintaxis 2\obj\Debug\net7.0\refint\Sintaxis 2.dll
+C:\Users\Adolfo\Documents\Adolfo\ITQ\5to semestre\Lenguajes y automatas\Unidad 1\Sintaxis 2\obj\Debug\net7.0\Sintaxis 2.pdb
+C:\Users\Adolfo\Documents\Adolfo\ITQ\5to semestre\Lenguajes y automatas\Unidad 1\Sintaxis 2\obj\Debug\net7.0\Sintaxis 2.genruntimeconfig.cache
+C:\Users\Adolfo\Documents\Adolfo\ITQ\5to semestre\Lenguajes y automatas\Unidad 1\Sintaxis 2\obj\Debug\net7.0\ref\Sintaxis 2.dll
