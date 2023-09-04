@@ -1,18 +1,15 @@
-<<<<<<< HEAD
 {
   "version": 2,
   "dgSpecHash": "M5m4qhd2hBg067yowD6RuwCM6dt3U12SovQAUbQvqpOh0jqR8XMv303v0QNu12Nsjja6YToVIGRUasVm37t9Pw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Adolfo\\Documents\\Adolfo\\ITQ\\5to semestre\\Lenguajes y automatas\\Unidad 1\\Sintaxis 2\\Sintaxis 2.csproj",
   "expectedPackageFiles": [],
-  "logs": []
-=======
-{
-  "version": 2,
-  "dgSpecHash": "M5m4qhd2hBg067yowD6RuwCM6dt3U12SovQAUbQvqpOh0jqR8XMv303v0QNu12Nsjja6YToVIGRUasVm37t9Pw==",
-  "success": true,
-  "projectFilePath": "C:\\Users\\Adolfo\\Documents\\Adolfo\\ITQ\\5to semestre\\Lenguajes y automatas\\Unidad 1\\Sintaxis 2\\Sintaxis 2.csproj",
-  "expectedPackageFiles": [],
-  "logs": []
->>>>>>> bf69dac530fb6b3be8f3cfe144274b1ad5cf47fc
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problema al leer el archivo de caché C:\\Users\\Adolfo\\Documents\\Adolfo\\ITQ\\5to semestre\\Lenguajes y automatas\\Unidad 1\\Sintaxis 2\\obj\\project.nuget.cache : Unexpected character encountered while parsing value: <. Path '', line 0, position 0."
+    }
+  ]
 }

@@ -6,9 +6,12 @@ using System.Threading.Tasks;
 /*
     Requerimiento 1: Mensajes del printf deben salir sin comillas
                      Incluir \n y \t como secuencias de escape
-    Requerimiento 2: Modificar el valor de una variable con ++, --, +=, -=, *=, /=,%=
-    Requerimiento 3: Cada vez que se haga un match(Tipos.Identificador) verificar el 
+    Requerimiento 2: Agregar el % al PorFactor
+                     Modifcar el valor de una variable con ++,--,+=,-=,*=,/=.%=
+    Requerimiento 3: Cada vez que se haga un match(Tipos.Identificador) verficar el
                      uso de la variable
+                     Icremento(), Printf(), Factor()
+                     Levantar una excepcion en scanf() cuando se capture un string
 */
 
 namespace Sintaxis_2
@@ -66,18 +69,27 @@ namespace Sintaxis_2
             }
             return false;
         }
-
-        private void Modifica(string nombre, float newValue)
+        private void Modifica(string nombre, float nuevoValor)
         {
             foreach (Variable v in lista)
             {
                 if (v.getNombre() == nombre)
                 {
-                    v.setValor(newValue);
+                    v.setValor(nuevoValor);
                 }
             }
         }
-
+        private float getValor(string nombre)
+        {
+            foreach (Variable v in lista)
+            {
+                if (v.getNombre() == nombre)
+                {
+                    return v.getValor();
+                }
+            }
+            return 0;
+        }
         // Libreria -> #include<Identificador(.h)?>
         private void Libreria()
         {
@@ -196,7 +208,8 @@ namespace Sintaxis_2
             {
                 throw new Error("de sintaxis, la variable <" + getContenido() + "> no está declarada", log, linea, columna);
             }
-            Console.Write(getContenido() + " = ");
+            log.Write(getContenido() + " = ");
+            string variable = getContenido();
             match(Tipos.Identificador);
             if (getContenido() == "=")
             {
@@ -239,7 +252,9 @@ namespace Sintaxis_2
                 }
                 Expresion();
             }
-            log.WriteLine("" + stack.Pop());
+            float resultado = stack.Pop();
+            log.WriteLine(" = " + resultado);
+            Modifica(variable,resultado);
             match(";");
         }
         //While -> while(Condicion) BloqueInstrucciones | Instruccion
@@ -381,7 +396,10 @@ namespace Sintaxis_2
             {
                 throw new Error("de sintaxis, la variable <" + getContenido() + "> no está declarada", log, linea, columna);
             }
+            string variable = getContenido();
             match(Tipos.Identificador);
+            float captura = float.Parse(Console.ReadLine());
+            Modifica(variable,captura);
             match(")");
             match(";");
         }
@@ -408,13 +426,13 @@ namespace Sintaxis_2
                 string operador = getContenido();
                 match(Tipos.OperadorTermino);
                 Termino();
-                log.Write("" + getContenido());
+                log.Write(" " + operador);
                 float R2 = stack.Pop();
                 float R1 = stack.Pop();
                 if (operador == "+")
-                    stack.Push(R1 + R2);
+                    stack.Push(R1+R2);
                 else
-                    stack.Push(R1 - R2);
+                    stack.Push(R1-R2);
             }
         }
         //Termino -> Factor PorFactor
@@ -431,7 +449,13 @@ namespace Sintaxis_2
                 string operador = getContenido();
                 match(Tipos.OperadorFactor);
                 Factor();
-                Console.Write(" " + operador);
+                log.Write(" " + operador);
+                float R2 = stack.Pop();
+                float R1 = stack.Pop();
+                if (operador == "*")
+                    stack.Push(R1*R2);
+                else
+                    stack.Push(R1/R2);
             }
         }
         //Factor -> numero | identificador | (Expresion)
@@ -439,7 +463,8 @@ namespace Sintaxis_2
         {
             if (getClasificacion() == Tipos.Numero)
             {
-                log.Write("" + getContenido());
+                log.Write(" " + getContenido());
+                stack.Push(float.Parse(getContenido()));
                 match(Tipos.Numero);
             }
             else if (getClasificacion() == Tipos.Identificador)
