@@ -19,4 +19,5 @@ void main() // Funcion principal
                     if (4==4)
                         printf("1 == 2");
     }
+    b+=30*2;
 }
