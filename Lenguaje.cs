@@ -180,7 +180,7 @@ namespace Sintaxis_2
             {
                 Scanf(ejecuta);
             }
-             else if (getContenido() == "if")
+            else if (getContenido() == "if")
             {
                 If(ejecuta);
             }
@@ -225,7 +225,7 @@ namespace Sintaxis_2
                     match("++");
                     resultado = getValor(variable) + 1;
                 }
-                else if(getContenido() == "--")
+                else if (getContenido() == "--")
                 {
                     match("--");
                     resultado = getValor(variable) - 1;
@@ -273,7 +273,7 @@ namespace Sintaxis_2
             if (ejecuta)
             {
                 stack.Push(resultado);
-                Modifica(variable,resultado);
+                Modifica(variable, resultado);
             }
             match(";");
         }
@@ -360,12 +360,12 @@ namespace Sintaxis_2
 
             switch (operador)
             {
-                case "==" : return R2==R1;
-                case ">"  : return R2>R1;
-                case ">=" : return R2>=R1;
-                case "<"  : return R2<R1;
-                case "<=" : return R2<=R1;
-                default   : return R2!=R1;
+                case "==": return R2 == R1;
+                case ">": return R2 > R1;
+                case ">=": return R2 >= R1;
+                case "<": return R2 < R1;
+                case "<=": return R2 <= R1;
+                default: return R2 != R1;
             }
         }
         //If -> if (Condicion) BloqueInstrucciones | Instruccion (else BloqueInstrucciones | Instruccion)?
@@ -374,8 +374,6 @@ namespace Sintaxis_2
             match("if");
             match("(");
             bool evaluacion = Condicion() && ejecuta;
-            Console.WriteLine(ejecuta);
-            Console.WriteLine(evaluacion);
             match(")");
             if (getContenido() == "{")
             {
@@ -415,7 +413,8 @@ namespace Sintaxis_2
                 {
                     throw new Error("de sintaxis, la variable <" + getContenido() + "> no está declarada", log, linea, columna);
                 }
-                if(ejecuta){
+                if (ejecuta)
+                {
                     Console.Write(getValor(getContenido()));
                 }
                 match(Tipos.Identificador);
@@ -441,12 +440,14 @@ namespace Sintaxis_2
             {
                 string captura = "" + Console.ReadLine();
                 float resultado;
-                if (!float.TryParse(captura, out resultado)) {
+                if (!float.TryParse(captura, out resultado))
+                {
                     throw new Error("No se puede capturar una cadena", log, linea, columna);
                 }
-                else{
+                else
+                {
                     stack.Push(float.Parse(captura));
-                    Modifica(variable,resultado);
+                    Modifica(variable, resultado);
                 }
             }
             match(")");
@@ -479,9 +480,9 @@ namespace Sintaxis_2
                 float R2 = stack.Pop();
                 float R1 = stack.Pop();
                 if (operador == "+")
-                    stack.Push(R1+R2);
+                    stack.Push(R1 + R2);
                 else
-                    stack.Push(R1-R2);
+                    stack.Push(R1 - R2);
             }
         }
         //Termino -> Factor PorFactor
@@ -502,11 +503,11 @@ namespace Sintaxis_2
                 float R2 = stack.Pop();
                 float R1 = stack.Pop();
                 if (operador == "*")
-                    stack.Push(R1*R2);
+                    stack.Push(R1 * R2);
                 else if (operador == "%")
-                    stack.Push(R1%R2);
+                    stack.Push(R1 % R2);
                 else
-                    stack.Push(R1/R2);
+                    stack.Push(R1 / R2);
             }
         }
         //Factor -> numero | identificador | (Expresion)
