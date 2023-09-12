@@ -242,7 +242,7 @@ namespace Sintaxis_2
                     match("-=");
                     Expresion();
                     resultado = stack.Pop();
-                    resultado -= getValor(variable);
+                    resultado = getValor(variable) - resultado;
                 }
             }
             else if (getClasificacion() == Tipos.IncrementoFactor)
@@ -257,15 +257,22 @@ namespace Sintaxis_2
                 else if (getContenido() == "/=")
                 {
                     match("/=");
+                    Expresion();
+                    resultado = stack.Pop();
+                    resultado = getValor(variable) / resultado;
                 }
                 else if (getContenido() == "%=")
                 {
                     match("%=");
+                    Expresion();
+                    resultado = stack.Pop();
+                    resultado = getValor(variable) % resultado;
                 }
             }
             log.WriteLine(" = " + resultado);
             if (ejecuta)
             {
+                stack.Push(resultado);
                 Modifica(variable,resultado);
             }
             match(";");
@@ -367,6 +374,7 @@ namespace Sintaxis_2
             match("if");
             match("(");
             bool evaluacion = Condicion() && ejecuta;
+            Console.WriteLine(ejecuta);
             Console.WriteLine(evaluacion);
             match(")");
             if (getContenido() == "{")
@@ -380,17 +388,15 @@ namespace Sintaxis_2
             if (getContenido() == "else")
             {
                 match("else");
-
                 if (getContenido() == "{")
                 {
-                    BloqueInstrucciones(ejecuta);
+                    BloqueInstrucciones(!evaluacion);
                 }
                 else
                 {
-                    Instruccion(ejecuta);
+                    Instruccion(!evaluacion);
                 }
             }
-
         }
         //Printf -> printf(cadena(,Identificador)?);
         private void Printf(bool ejecuta)
@@ -408,6 +414,9 @@ namespace Sintaxis_2
                 if (!Existe(getContenido()))
                 {
                     throw new Error("de sintaxis, la variable <" + getContenido() + "> no está declarada", log, linea, columna);
+                }
+                if(ejecuta){
+                    Console.Write(getValor(getContenido()));
                 }
                 match(Tipos.Identificador);
             }
@@ -431,8 +440,14 @@ namespace Sintaxis_2
             if (ejecuta)
             {
                 string captura = "" + Console.ReadLine();
-                float resultado = float.Parse(captura);
-                Modifica(variable,resultado);
+                float resultado;
+                if (!float.TryParse(captura, out resultado)) {
+                    throw new Error("No se puede capturar una cadena", log, linea, columna);
+                }
+                else{
+                    stack.Push(float.Parse(captura));
+                    Modifica(variable,resultado);
+                }
             }
             match(")");
             match(";");
@@ -508,6 +523,7 @@ namespace Sintaxis_2
                 {
                     throw new Error("de sintaxis, la variable <" + getContenido() + "> no está declarada", log, linea, columna);
                 }
+                stack.Push(getValor(getContenido()));
                 match(Tipos.Identificador);
             }
             else

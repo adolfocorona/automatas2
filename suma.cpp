@@ -1,9 +1,8 @@
 #include<stdio.h>
 #include<math.h>
 #include<iostream>
-#include<conio.h>
 
-float a,b,c,d;
+float a,b,c;
 
 void main() // Funcion principal
 {
@@ -11,13 +10,20 @@ void main() // Funcion principal
     b=8;
     printf("Valor de c = ");
     scanf("%f",&c);
-    if (1==1)
+    if (c%2==0)
     {
-        if (1==1)
-            if (2==2)
-                if (3==3)
-                    if (4==4)
-                        printf("1 == 2");
+        printf("\nc es par\t\tITQ");
+        if (c==10)
+            printf("El valor de c = ",c);
     }
-    b+=30*2;
+    else {
+        printf("\nc es impar\t\tITQ");
+    }
+    b++;
+    c--;
+    c+=(10-b);
+    b-=9;
+    printf("El valor de a = ",a);
+    printf("El valor de b = ",b);
+    printf("El valor de c = ",c);
 }
