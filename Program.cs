@@ -13,10 +13,10 @@ namespace Sintaxis_2
                     
                     L.Programa();
 
-                    while (!L.FinArchivo())
+                    /*while (!L.FinArchivo())
                     {
                         L.nextToken();
-                    }
+                    }*/
                 }
             }
             catch (Exception e)
