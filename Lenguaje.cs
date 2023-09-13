@@ -396,6 +396,15 @@ namespace Sintaxis_2
                         Instruccion(!evaluacion);
                     }
                 }
+                else{
+                    if(getContenido() == "{"){
+                        BloqueInstrucciones(!evaluacion);
+                    }
+                    else
+                    {
+                        Instruccion(!evaluacion);
+                    }
+                }
             }
         }
         //Printf -> printf(cadena(,Identificador)?);

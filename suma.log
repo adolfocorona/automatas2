@@ -1,5 +1,5 @@
 Autor: Adolfo Cortés Corona
-12/09/2023 07:17:34 p. m.
+13/09/2023 01:42:40 p. m.
 # | Caracter
 include | Identificador
 < | OperadorRelacional
@@ -127,6 +127,14 @@ printf | Identificador
 "Se ejecuta el segundo if del Else" | Cadena
 ) | Caracter
 ; | FinSentencia
+else | Condicion
+{ | Inicio
+a | Identificador
+a = = | Asignacion
+10 | Numero
+; | FinSentencia
+ = 10
+} | Fin
 } | Fin
 b | Identificador
 b = ++ | IncrementoTermino
@@ -186,7 +194,7 @@ d | Identificador
 -----------------
 V a r i a b l e s
 -----------------
-a Float = 61
+a Float = 10
 b Float = 11
 c Float = 71
 d Float = 3
