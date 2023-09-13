@@ -386,13 +386,15 @@ namespace Sintaxis_2
             if (getContenido() == "else")
             {
                 match("else");
-                if (getContenido() == "{")
-                {
-                    BloqueInstrucciones(!evaluacion);
-                }
-                else
-                {
-                    Instruccion(!evaluacion);
+                if(ejecuta){
+                    if (getContenido() == "{")
+                    {
+                        BloqueInstrucciones(!evaluacion);
+                    }
+                    else
+                    {
+                        Instruccion(!evaluacion);
+                    }
                 }
             }
         }

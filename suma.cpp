@@ -12,17 +12,18 @@ void main() // Funcion principal
     scanf("%f",&c);
     if (c%2==0)
     {
-
         printf("\nc es par\t\tITQ");
         if (c==10)
-            printf("Se ejecutó el segundo If ",c);
-            a = 70;
+            printf("Se ejecuta el segundo If ",c);
+        else
+            printf("else");
+        a = 70;
     }
     else
     {
         printf("\nc es impar\tITQ\n");
         if(c==11)
-            printf("Se ejecutó el segundo if del Else");
+            printf("Se ejecutÃ³ el segundo if del Else");
     }
     b++;
     c--;
@@ -31,7 +32,6 @@ void main() // Funcion principal
     b-=9;
     printf("\nEl valor de a = ",a);
     printf("\nEl valor de b = ",b);
-    printf("\nEl valor de d = ",d);
     printf("\nEl valor de c = ",c);
+    printf("\nEl valor de d = ",d);
 }
-
