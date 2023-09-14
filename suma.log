@@ -1,5 +1,5 @@
 Autor: Adolfo Cortés Corona
-13/09/2023 01:42:40 p. m.
+13/09/2023 01:46:40 p. m.
 # | Caracter
 include | Identificador
 < | OperadorRelacional
@@ -143,7 +143,7 @@ b = ++ | IncrementoTermino
 c | Identificador
 c = -- | IncrementoTermino
 ; | FinSentencia
- = 76
+ = 12
 d | Identificador
 d = = | Asignacion
 3 | Numero
@@ -157,7 +157,7 @@ c = += | IncrementoTermino
 b | Identificador
 ) | Caracter
  -; | FinSentencia
- = 71
+ = 7
 b | Identificador
 b = -= | IncrementoTermino
 9 | Numero
@@ -196,6 +196,6 @@ V a r i a b l e s
 -----------------
 a Float = 10
 b Float = 11
-c Float = 71
+c Float = 7
 d Float = 3
 -----------------

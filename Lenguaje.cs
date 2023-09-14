@@ -398,11 +398,11 @@ namespace Sintaxis_2
                 }
                 else{
                     if(getContenido() == "{"){
-                        BloqueInstrucciones(!evaluacion);
+                        BloqueInstrucciones(evaluacion);
                     }
                     else
                     {
-                        Instruccion(!evaluacion);
+                        Instruccion(evaluacion);
                     }
                 }
             }
