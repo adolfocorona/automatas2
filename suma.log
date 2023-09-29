@@ -1,5 +1,5 @@
 Autor: Adolfo Cortés Corona
-13/09/2023 01:46:40 p. m.
+28/09/2023 08:36:06 p. m.
 # | Caracter
 include | Identificador
 < | OperadorRelacional
@@ -19,183 +19,616 @@ include | Identificador
 < | OperadorRelacional
 iostream | Identificador
 > | OperadorRelacional
-float | TipoDato
+char | TipoDato
 a | Identificador
-, | Caracter
-b | Identificador
+; | FinSentencia
+int | TipoDato
+contador | Identificador
 , | Caracter
 c | Identificador
 , | Caracter
-d | Identificador
+i | Identificador
 ; | FinSentencia
 void | Identificador
 main | Identificador
 ( | Caracter
 ) | Caracter
 { | Inicio
-a | Identificador
-a = = | Asignacion
-( | Caracter
-3 | Numero
-+ | OperadorTermino
-5 | Numero
-) | Caracter
- +* | OperadorFactor
-8 | Numero
-- | OperadorTermino
- *( | Caracter
-10 | Numero
-- | OperadorTermino
-4 | Numero
-) | Caracter
- -/ | OperadorFactor
-2 | Numero
-; | FinSentencia
- / - = 61
-b | Identificador
-b = = | Asignacion
-19 | Numero
-; | FinSentencia
- = 19
+do | Ciclo
+{ | Inicio
 printf | Identificador
 ( | Caracter
-"Valor de c = " | Cadena
-) | Caracter
-; | FinSentencia
-scanf | Identificador
-( | Caracter
-"%f" | Cadena
+"\nValor de contador: " | Cadena
 , | Caracter
-& | Caracter
-c | Identificador
+contador | Identificador
 ) | Caracter
 ; | FinSentencia
-if | Condicion
+contador | Identificador
+contador = ++ | IncrementoTermino
+; | FinSentencia
+} | Fin
+while | Ciclo
+( | Caracter
+contador | Identificador
+<= | OperadorRelacional
+10 | Numero
+) | Caracter
+; | FinSentencia
+while | Ciclo
+{ | Inicio
+printf | Identificador
+( | Caracter
+"\nValor de contador: " | Cadena
+, | Caracter
+contador | Identificador
+) | Caracter
+; | FinSentencia
+contador | Identificador
+contador = ++ | IncrementoTermino
+; | FinSentencia
+} | Fin
+while | Ciclo
+( | Caracter
+contador | Identificador
+<= | OperadorRelacional
+10 | Numero
+) | Caracter
+; | FinSentencia
+while | Ciclo
+{ | Inicio
+printf | Identificador
+( | Caracter
+"\nValor de contador: " | Cadena
+, | Caracter
+contador | Identificador
+) | Caracter
+; | FinSentencia
+contador | Identificador
+contador = ++ | IncrementoTermino
+; | FinSentencia
+} | Fin
+while | Ciclo
+( | Caracter
+contador | Identificador
+<= | OperadorRelacional
+10 | Numero
+) | Caracter
+; | FinSentencia
+while | Ciclo
+{ | Inicio
+printf | Identificador
+( | Caracter
+"\nValor de contador: " | Cadena
+, | Caracter
+contador | Identificador
+) | Caracter
+; | FinSentencia
+contador | Identificador
+contador = ++ | IncrementoTermino
+; | FinSentencia
+} | Fin
+while | Ciclo
+( | Caracter
+contador | Identificador
+<= | OperadorRelacional
+10 | Numero
+) | Caracter
+; | FinSentencia
+while | Ciclo
+{ | Inicio
+printf | Identificador
+( | Caracter
+"\nValor de contador: " | Cadena
+, | Caracter
+contador | Identificador
+) | Caracter
+; | FinSentencia
+contador | Identificador
+contador = ++ | IncrementoTermino
+; | FinSentencia
+} | Fin
+while | Ciclo
+( | Caracter
+contador | Identificador
+<= | OperadorRelacional
+10 | Numero
+) | Caracter
+; | FinSentencia
+while | Ciclo
+{ | Inicio
+printf | Identificador
+( | Caracter
+"\nValor de contador: " | Cadena
+, | Caracter
+contador | Identificador
+) | Caracter
+; | FinSentencia
+contador | Identificador
+contador = ++ | IncrementoTermino
+; | FinSentencia
+} | Fin
+while | Ciclo
+( | Caracter
+contador | Identificador
+<= | OperadorRelacional
+10 | Numero
+) | Caracter
+; | FinSentencia
+while | Ciclo
+{ | Inicio
+printf | Identificador
+( | Caracter
+"\nValor de contador: " | Cadena
+, | Caracter
+contador | Identificador
+) | Caracter
+; | FinSentencia
+contador | Identificador
+contador = ++ | IncrementoTermino
+; | FinSentencia
+} | Fin
+while | Ciclo
+( | Caracter
+contador | Identificador
+<= | OperadorRelacional
+10 | Numero
+) | Caracter
+; | FinSentencia
+while | Ciclo
+{ | Inicio
+printf | Identificador
+( | Caracter
+"\nValor de contador: " | Cadena
+, | Caracter
+contador | Identificador
+) | Caracter
+; | FinSentencia
+contador | Identificador
+contador = ++ | IncrementoTermino
+; | FinSentencia
+} | Fin
+while | Ciclo
+( | Caracter
+contador | Identificador
+<= | OperadorRelacional
+10 | Numero
+) | Caracter
+; | FinSentencia
+while | Ciclo
+{ | Inicio
+printf | Identificador
+( | Caracter
+"\nValor de contador: " | Cadena
+, | Caracter
+contador | Identificador
+) | Caracter
+; | FinSentencia
+contador | Identificador
+contador = ++ | IncrementoTermino
+; | FinSentencia
+} | Fin
+while | Ciclo
+( | Caracter
+contador | Identificador
+<= | OperadorRelacional
+10 | Numero
+) | Caracter
+; | FinSentencia
+while | Ciclo
+{ | Inicio
+printf | Identificador
+( | Caracter
+"\nValor de contador: " | Cadena
+, | Caracter
+contador | Identificador
+) | Caracter
+; | FinSentencia
+contador | Identificador
+contador = ++ | IncrementoTermino
+; | FinSentencia
+} | Fin
+while | Ciclo
+( | Caracter
+contador | Identificador
+<= | OperadorRelacional
+10 | Numero
+) | Caracter
+; | FinSentencia
+while | Ciclo
+{ | Inicio
+printf | Identificador
+( | Caracter
+"\nValor de contador: " | Cadena
+, | Caracter
+contador | Identificador
+) | Caracter
+; | FinSentencia
+contador | Identificador
+contador = ++ | IncrementoTermino
+; | FinSentencia
+} | Fin
+while | Ciclo
+( | Caracter
+contador | Identificador
+<= | OperadorRelacional
+10 | Numero
+) | Caracter
+; | FinSentencia
+while | Ciclo
 ( | Caracter
 c | Identificador
-% | OperadorFactor
-2 | Numero
-== | OperadorRelacional
- %0 | Numero
+< | OperadorRelacional
+10 | Numero
 ) | Caracter
 { | Inicio
 printf | Identificador
 ( | Caracter
-"\nc es par\t\tITQ" | Cadena
-) | Caracter
-; | FinSentencia
-if | Condicion
-( | Caracter
-c | Identificador
-== | OperadorRelacional
-10 | Numero
-) | Caracter
-printf | Identificador
-( | Caracter
-"Se ejecuta el segundo If " | Cadena
+"\nValor de c: " | Cadena
 , | Caracter
 c | Identificador
 ) | Caracter
 ; | FinSentencia
-else | Condicion
-printf | Identificador
-( | Caracter
-"else" | Cadena
-) | Caracter
+c | Identificador
+c = ++ | IncrementoTermino
 ; | FinSentencia
-a | Identificador
-a = = | Asignacion
-70 | Numero
-; | FinSentencia
- = 70
 } | Fin
-else | Condicion
+for | Ciclo
+c | Identificador
+< | OperadorRelacional
+10 | Numero
+) | Caracter
 { | Inicio
 printf | Identificador
 ( | Caracter
-"\nc es impar\tITQ\n" | Cadena
+"\nValor de c: " | Cadena
+, | Caracter
+c | Identificador
 ) | Caracter
 ; | FinSentencia
-if | Condicion
-( | Caracter
 c | Identificador
-== | OperadorRelacional
-11 | Numero
+c = ++ | IncrementoTermino
+; | FinSentencia
+} | Fin
+for | Ciclo
+c | Identificador
+< | OperadorRelacional
+10 | Numero
 ) | Caracter
+{ | Inicio
 printf | Identificador
 ( | Caracter
-"Se ejecuta el segundo if del Else" | Cadena
+"\nValor de c: " | Cadena
+, | Caracter
+c | Identificador
 ) | Caracter
 ; | FinSentencia
-else | Condicion
+c | Identificador
+c = ++ | IncrementoTermino
+; | FinSentencia
+} | Fin
+for | Ciclo
+c | Identificador
+< | OperadorRelacional
+10 | Numero
+) | Caracter
 { | Inicio
-a | Identificador
-a = = | Asignacion
+printf | Identificador
+( | Caracter
+"\nValor de c: " | Cadena
+, | Caracter
+c | Identificador
+) | Caracter
+; | FinSentencia
+c | Identificador
+c = ++ | IncrementoTermino
+; | FinSentencia
+} | Fin
+for | Ciclo
+c | Identificador
+< | OperadorRelacional
+10 | Numero
+) | Caracter
+{ | Inicio
+printf | Identificador
+( | Caracter
+"\nValor de c: " | Cadena
+, | Caracter
+c | Identificador
+) | Caracter
+; | FinSentencia
+c | Identificador
+c = ++ | IncrementoTermino
+; | FinSentencia
+} | Fin
+for | Ciclo
+c | Identificador
+< | OperadorRelacional
+10 | Numero
+) | Caracter
+{ | Inicio
+printf | Identificador
+( | Caracter
+"\nValor de c: " | Cadena
+, | Caracter
+c | Identificador
+) | Caracter
+; | FinSentencia
+c | Identificador
+c = ++ | IncrementoTermino
+; | FinSentencia
+} | Fin
+for | Ciclo
+c | Identificador
+< | OperadorRelacional
+10 | Numero
+) | Caracter
+{ | Inicio
+printf | Identificador
+( | Caracter
+"\nValor de c: " | Cadena
+, | Caracter
+c | Identificador
+) | Caracter
+; | FinSentencia
+c | Identificador
+c = ++ | IncrementoTermino
+; | FinSentencia
+} | Fin
+for | Ciclo
+c | Identificador
+< | OperadorRelacional
+10 | Numero
+) | Caracter
+{ | Inicio
+printf | Identificador
+( | Caracter
+"\nValor de c: " | Cadena
+, | Caracter
+c | Identificador
+) | Caracter
+; | FinSentencia
+c | Identificador
+c = ++ | IncrementoTermino
+; | FinSentencia
+} | Fin
+for | Ciclo
+c | Identificador
+< | OperadorRelacional
+10 | Numero
+) | Caracter
+{ | Inicio
+printf | Identificador
+( | Caracter
+"\nValor de c: " | Cadena
+, | Caracter
+c | Identificador
+) | Caracter
+; | FinSentencia
+c | Identificador
+c = ++ | IncrementoTermino
+; | FinSentencia
+} | Fin
+for | Ciclo
+c | Identificador
+< | OperadorRelacional
+10 | Numero
+) | Caracter
+{ | Inicio
+printf | Identificador
+( | Caracter
+"\nValor de c: " | Cadena
+, | Caracter
+c | Identificador
+) | Caracter
+; | FinSentencia
+c | Identificador
+c = ++ | IncrementoTermino
+; | FinSentencia
+} | Fin
+for | Ciclo
+c | Identificador
+< | OperadorRelacional
+10 | Numero
+) | Caracter
+{ | Inicio
+printf | Identificador
+( | Caracter
+"\nValor de c: " | Cadena
+, | Caracter
+c | Identificador
+) | Caracter
+; | FinSentencia
+c | Identificador
+c = ++ | IncrementoTermino
+; | FinSentencia
+} | Fin
+for | Ciclo
+( | Caracter
+i | Identificador
+i = = | Asignacion
+0 | Numero
+; | FinSentencia
+i | Identificador
+< | OperadorRelacional
 10 | Numero
 ; | FinSentencia
- = 10
+i | Identificador
+++ | IncrementoTermino
+) | Caracter
+{ | Inicio
+printf | Identificador
+( | Caracter
+"\nValor de i: " | Cadena
+, | Caracter
+i | Identificador
+) | Caracter
+; | FinSentencia
 } | Fin
+i | Identificador
+< | OperadorRelacional
+10 | Numero
+; | FinSentencia
+i | Identificador
+++ | IncrementoTermino
+) | Caracter
+{ | Inicio
+printf | Identificador
+( | Caracter
+"\nValor de i: " | Cadena
+, | Caracter
+i | Identificador
+) | Caracter
+; | FinSentencia
 } | Fin
-b | Identificador
-b = ++ | IncrementoTermino
+i | Identificador
+< | OperadorRelacional
+10 | Numero
 ; | FinSentencia
- = 20
-c | Identificador
-c = -- | IncrementoTermino
-; | FinSentencia
- = 12
-d | Identificador
-d = = | Asignacion
-3 | Numero
-; | FinSentencia
- = 3
-c | Identificador
-c = += | IncrementoTermino
-( | Caracter
-15 | Numero
-- | OperadorTermino
-b | Identificador
+i | Identificador
+++ | IncrementoTermino
 ) | Caracter
- -; | FinSentencia
- = 7
-b | Identificador
-b = -= | IncrementoTermino
-9 | Numero
-; | FinSentencia
- = 11
+{ | Inicio
 printf | Identificador
 ( | Caracter
-"\nEl valor de a = " | Cadena
+"\nValor de i: " | Cadena
 , | Caracter
-a | Identificador
+i | Identificador
 ) | Caracter
 ; | FinSentencia
+} | Fin
+i | Identificador
+< | OperadorRelacional
+10 | Numero
+; | FinSentencia
+i | Identificador
+++ | IncrementoTermino
+) | Caracter
+{ | Inicio
 printf | Identificador
 ( | Caracter
-"\nEl valor de b = " | Cadena
+"\nValor de i: " | Cadena
 , | Caracter
-b | Identificador
+i | Identificador
 ) | Caracter
 ; | FinSentencia
+} | Fin
+i | Identificador
+< | OperadorRelacional
+10 | Numero
+; | FinSentencia
+i | Identificador
+++ | IncrementoTermino
+) | Caracter
+{ | Inicio
 printf | Identificador
 ( | Caracter
-"\nEl valor de c = " | Cadena
+"\nValor de i: " | Cadena
 , | Caracter
-c | Identificador
+i | Identificador
 ) | Caracter
 ; | FinSentencia
+} | Fin
+i | Identificador
+< | OperadorRelacional
+10 | Numero
+; | FinSentencia
+i | Identificador
+++ | IncrementoTermino
+) | Caracter
+{ | Inicio
 printf | Identificador
 ( | Caracter
-"\nEl valor de d = " | Cadena
+"\nValor de i: " | Cadena
 , | Caracter
-d | Identificador
+i | Identificador
 ) | Caracter
 ; | FinSentencia
+} | Fin
+i | Identificador
+< | OperadorRelacional
+10 | Numero
+; | FinSentencia
+i | Identificador
+++ | IncrementoTermino
+) | Caracter
+{ | Inicio
+printf | Identificador
+( | Caracter
+"\nValor de i: " | Cadena
+, | Caracter
+i | Identificador
+) | Caracter
+; | FinSentencia
+} | Fin
+i | Identificador
+< | OperadorRelacional
+10 | Numero
+; | FinSentencia
+i | Identificador
+++ | IncrementoTermino
+) | Caracter
+{ | Inicio
+printf | Identificador
+( | Caracter
+"\nValor de i: " | Cadena
+, | Caracter
+i | Identificador
+) | Caracter
+; | FinSentencia
+} | Fin
+i | Identificador
+< | OperadorRelacional
+10 | Numero
+; | FinSentencia
+i | Identificador
+++ | IncrementoTermino
+) | Caracter
+{ | Inicio
+printf | Identificador
+( | Caracter
+"\nValor de i: " | Cadena
+, | Caracter
+i | Identificador
+) | Caracter
+; | FinSentencia
+} | Fin
+i | Identificador
+< | OperadorRelacional
+10 | Numero
+; | FinSentencia
+i | Identificador
+++ | IncrementoTermino
+) | Caracter
+{ | Inicio
+printf | Identificador
+( | Caracter
+"\nValor de i: " | Cadena
+, | Caracter
+i | Identificador
+) | Caracter
+; | FinSentencia
+} | Fin
+i | Identificador
+< | OperadorRelacional
+10 | Numero
+; | FinSentencia
+i | Identificador
+++ | IncrementoTermino
+) | Caracter
+{ | Inicio
+printf | Identificador
+( | Caracter
+"\nValor de i: " | Cadena
+, | Caracter
+i | Identificador
+) | Caracter
+; | FinSentencia
+} | Fin
 -----------------
 V a r i a b l e s
 -----------------
-a Float = 10
-b Float = 11
-c Float = 7
-d Float = 3
+a Char = 0
+contador Int = 11
+c Int = 10
+i Int = 10
 -----------------
