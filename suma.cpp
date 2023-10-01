@@ -7,12 +7,14 @@ int contador, c, i;
 
 void main() // Funcion principal
 {
+    
+    
     do {
         printf("\nValor de contador: ", contador);
         contador++;
     }
     while(contador <= 10);
-    while(c < 10) {
+    while( c < 10) {
         printf("\nValor de c: ", c);
         c++;
     }

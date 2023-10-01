@@ -59,7 +59,8 @@ namespace Sintaxis_2
         protected StreamWriter log;
 
         protected int character;
-
+        protected int character2;
+        protected int character3;
         protected int linea;
         protected int columna;
         public Lexico()

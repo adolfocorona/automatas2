@@ -315,49 +315,46 @@ namespace Sintaxis_2
             match(";");
         }
         //While -> while(Condicion) BloqueInstrucciones | Instruccion
+        
         private void While(bool ejecuta)
-        {   
-            int inicia = character;
-            int lineaInicio = linea;
+        {
+
             match("while");
             match("(");
-            
-            do{
+            int inicia = character; // Guarda la posición inicial de character
+            int lineaInicio = linea;
+            string variable = getContenido();
+            do {
                 ejecuta = Condicion() && ejecuta;
                 match(")");
-                if (getContenido() == "{")
-                {
+                if (getContenido() == "{") {
                     BloqueInstrucciones(ejecuta);
                 }
-                else
-                {
+                else {
                     Instruccion(ejecuta);
                 }
-                if (ejecuta)
-                {
+                if (ejecuta) {
                     archivo.DiscardBufferedData();
-                    character = inicia + 1;
+                    character = inicia - variable.Length - 1; // - 1 si while está hasta arriba, dejarlo igual si está abajo
                     archivo.BaseStream.Seek(character, SeekOrigin.Begin);
                     nextToken();
                     linea = lineaInicio;
+                    character = inicia;
                 }
-            }
-            while(ejecuta);
+            } while (ejecuta);
         }
 
         //Do -> do BloqueInstrucciones | Instruccion while(Condicion)
         private void Do(bool ejecuta)
         {
-            int inicia = character;
+            int inicia = character; // Guarda la posición inicial de character
             int lineaInicio = linea;
             match("do");
-            do{
-                if (getContenido() == "{")
-                {
+            do {
+                if (getContenido() == "{") {
                     BloqueInstrucciones(ejecuta);
                 }
-                else
-                {
+                else {
                     Instruccion(ejecuta);
                 }
                 match("while");
@@ -365,17 +362,14 @@ namespace Sintaxis_2
                 ejecuta = Condicion() && ejecuta;
                 match(")");
                 match(";");
-                if (ejecuta)
-                {
+                if (ejecuta) {
                     archivo.DiscardBufferedData();
-                    character = inicia;
+                    character = inicia - 1; // Restablece la posición de character
                     archivo.BaseStream.Seek(character, SeekOrigin.Begin);
                     nextToken();
                     linea = lineaInicio;
                 }
-            }
-            while(ejecuta);
-            
+            } while (ejecuta);
         }
         //For -> for(Asignacion Condicion; Incremento) BloqueInstrucciones | Instruccion
         private void For(bool ejecuta)
@@ -383,37 +377,33 @@ namespace Sintaxis_2
             match("for");
             match("(");
             Asignacion(ejecuta);
-            
-            int inicia = character;
+
+            int inicia = character; // Guarda la posición inicial de character
             int lineaInicio = linea;
             float resultado = 0;
             string variable = getContenido();
 
-            do
-            {
+            do {
                 ejecuta = Condicion() && ejecuta;
                 match(";");
                 resultado = Incremento(ejecuta);
                 match(")");
-                if (getContenido() == "{")
-                {
+                if (getContenido() == "{") {
                     BloqueInstrucciones(ejecuta);
                 }
-                else
-                {
+                else {
                     Instruccion(ejecuta);
                 }
-                if (ejecuta)
-                {
+                if (ejecuta) {
                     Modifica(variable, resultado);
                     archivo.DiscardBufferedData();
-                    character = inicia - variable.Length - 1;
+                    character = inicia - variable.Length - 1; // - 1 si for está hasta arriba, dejarlo igual si está abajo
                     archivo.BaseStream.Seek(character, SeekOrigin.Begin);
                     nextToken();
                     linea = lineaInicio;
+                    character = inicia;
                 }
-            }
-            while (ejecuta);
+            } while (ejecuta);
         }
         //Incremento -> Identificador ++ | --
         private float Incremento(bool ejecuta)
