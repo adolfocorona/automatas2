@@ -300,46 +300,46 @@ namespace Sintaxis_2
             }
             if (ejecuta)
             {
-                Variable.TiposDatos tipoDatoVariable  = getTipo(variable);
+                Variable.TiposDatos tipoDatoVariable = getTipo(variable);
                 Variable.TiposDatos tipoDatoResultado = getTipo(resultado);
 
                 if (tipoDatoVariable >= tipoDatoResultado)
                 {
-                    Modifica(variable,resultado);                   
+                    Modifica(variable, resultado);
                 }
                 else
                 {
-                    throw new Error("de semantica, no se puede asignar in <" + tipoDatoResultado + "> a un <"+ tipoDatoVariable + ">", log, linea, columna);
+                    throw new Error("de semantica, no se puede asignar in <" + tipoDatoResultado + "> a un <" + tipoDatoVariable + ">", log, linea, columna);
                 }
             }
             match(";");
         }
         //While -> while(Condicion) BloqueInstrucciones | Instruccion
-        
         private void While(bool ejecuta)
         {
-
-            match("while");
-            match("(");
-            int inicia = character; // Guarda la posición inicial de character
-            int lineaInicio = linea;
-            string variable = getContenido();
-            do {
+            do
+            {
+                int inicia = character;
+                int lineaInicio = linea;
+                match("while");
+                match("(");
                 ejecuta = Condicion() && ejecuta;
                 match(")");
-                if (getContenido() == "{") {
+                if (getContenido() == "{")
+                {
                     BloqueInstrucciones(ejecuta);
                 }
-                else {
+                else
+                {
                     Instruccion(ejecuta);
                 }
-                if (ejecuta) {
+                if (ejecuta)
+                {
                     archivo.DiscardBufferedData();
-                    character = inicia - variable.Length - 1; // - 1 si while está hasta arriba, dejarlo igual si está abajo
+                    character = inicia - 5; // - 1 si while está hasta arriba, dejarlo igual si está abajo
                     archivo.BaseStream.Seek(character, SeekOrigin.Begin);
                     nextToken();
                     linea = lineaInicio;
-                    character = inicia;
                 }
             } while (ejecuta);
         }
@@ -347,14 +347,18 @@ namespace Sintaxis_2
         //Do -> do BloqueInstrucciones | Instruccion while(Condicion)
         private void Do(bool ejecuta)
         {
-            int inicia = character; // Guarda la posición inicial de character
-            int lineaInicio = linea;
-            match("do");
-            do {
-                if (getContenido() == "{") {
+            
+            do
+            {
+                int inicia = character; // Guarda la posición inicial de character
+                int lineaInicio = linea;
+                match("do");
+                if (getContenido() == "{")
+                {
                     BloqueInstrucciones(ejecuta);
                 }
-                else {
+                else
+                {
                     Instruccion(ejecuta);
                 }
                 match("while");
@@ -362,9 +366,10 @@ namespace Sintaxis_2
                 ejecuta = Condicion() && ejecuta;
                 match(")");
                 match(";");
-                if (ejecuta) {
+                if (ejecuta)
+                {
                     archivo.DiscardBufferedData();
-                    character = inicia - 1; // Restablece la posición de character
+                    character = inicia - 2; // Restablece la posición de character
                     archivo.BaseStream.Seek(character, SeekOrigin.Begin);
                     nextToken();
                     linea = lineaInicio;
@@ -378,30 +383,40 @@ namespace Sintaxis_2
             match("(");
             Asignacion(ejecuta);
 
-            int inicia = character; // Guarda la posición inicial de character
+            int inicia = character;
             int lineaInicio = linea;
             float resultado = 0;
             string variable = getContenido();
 
-            do {
+            do
+            {
                 ejecuta = Condicion() && ejecuta;
                 match(";");
                 resultado = Incremento(ejecuta);
                 match(")");
-                if (getContenido() == "{") {
+                if (getContenido() == "{")
+                {
                     BloqueInstrucciones(ejecuta);
                 }
-                else {
+                else
+                {
                     Instruccion(ejecuta);
                 }
-                if (ejecuta) {
-                    Modifica(variable, resultado);
+                if (ejecuta)
+                {
+                    if (getTipo(variable) >= getTipo(resultado))
+                    {
+                        Modifica(variable, resultado);
+                    }
+                    else
+                    {
+                        throw new Error("de semantica, no se puede asignar in <" + getTipo(resultado) + "> a un <" + getTipo(variable) + ">", log, linea, columna);
+                    }
                     archivo.DiscardBufferedData();
-                    character = inicia - variable.Length - 1; // - 1 si for está hasta arriba, dejarlo igual si está abajo
+                    character = inicia - variable.Length - 1; 
                     archivo.BaseStream.Seek(character, SeekOrigin.Begin);
                     nextToken();
                     linea = lineaInicio;
-                    character = inicia;
                 }
             } while (ejecuta);
         }
@@ -465,7 +480,8 @@ namespace Sintaxis_2
             if (getContenido() == "else")
             {
                 match("else");
-                if(ejecuta){
+                if (ejecuta)
+                {
                     if (getContenido() == "{")
                     {
                         BloqueInstrucciones(!evaluacion);
@@ -475,8 +491,10 @@ namespace Sintaxis_2
                         Instruccion(!evaluacion);
                     }
                 }
-                else{
-                    if(getContenido() == "{"){
+                else
+                {
+                    if (getContenido() == "{")
+                    {
                         BloqueInstrucciones(evaluacion);
                     }
                     else
@@ -536,8 +554,15 @@ namespace Sintaxis_2
                 }
                 else
                 {
-                    stack.Push(float.Parse(captura));
-                    Modifica(variable, resultado);
+                    if (getTipo(variable) >= getTipo(resultado))
+                    {
+                        stack.Push(float.Parse(captura));
+                        Modifica(variable, resultado);
+                    }
+                    else
+                    {
+                        throw new Error("de semantica, no se puede asignar in <" + getTipo(resultado) + "> a un <" + getTipo(variable) + ">", log, linea, columna);
+                    }
                 }
             }
             match(")");
@@ -605,8 +630,9 @@ namespace Sintaxis_2
         {
             if (getClasificacion() == Tipos.Numero)
             {
-                stack.Push(float.Parse(getContenido()));            
-                if(tipoDatoExpresion < getTipo(float.Parse(getContenido()))){
+                stack.Push(float.Parse(getContenido()));
+                if (tipoDatoExpresion < getTipo(float.Parse(getContenido())))
+                {
                     tipoDatoExpresion = getTipo(float.Parse(getContenido()));
                 }
                 match(Tipos.Numero);
@@ -634,10 +660,12 @@ namespace Sintaxis_2
                     huboCast = true;
                     switch (getContenido())
                     {
-                        case "int"  : tipoDatoCast = Variable.TiposDatos.Int;
-                                        break;
-                        case "float": tipoDatoCast = Variable.TiposDatos.Float;
-                                        break;
+                        case "int":
+                            tipoDatoCast = Variable.TiposDatos.Int;
+                            break;
+                        case "float":
+                            tipoDatoCast = Variable.TiposDatos.Float;
+                            break;
                     }
                     match(Tipos.TipoDato);
                     match(")");
@@ -648,21 +676,131 @@ namespace Sintaxis_2
                 if (huboCast)
                 {
                     tipoDatoExpresion = tipoDatoCast;
-                    stack.Push(castea(stack.Pop(),tipoDatoCast));
+                    stack.Push(castea(stack.Pop(), tipoDatoCast));
                 }
             }
         }
 
-        float castea(float resultado, Variable.TiposDatos tipoDato)
+        /*float castea(float resultado, Variable.TiposDatos tipoDato)
         {
             float residuo = 0;
             if (tipoDato == Variable.TiposDatos.Int){
-                residuo = resultado % 65535;
+                residuo = MathF.Round(resultado % 65535, MidpointRounding.AwayFromZero);
             } 
             else if (tipoDato == Variable.TiposDatos.Char){
-                residuo = resultado % 255;
+                residuo = MathF.Round(resultado % 255, MidpointRounding.AwayFromZero);
             }
             return residuo;
+        }*/
+
+        float castea(float resultado, Variable.TiposDatos tipoDato)
+        {
+            //INDICA A QUE TIPO DE DATO VAMOS A CASETAR , EN TESTE CASO  A UN CHAR () => a = (char)(257)
+            if (tipoDato == Variable.TiposDatos.Char)//Esta linea indica en que TIPO DE CASTEO ENTRO (char, int , float)
+            {
+                //DECLARAMOS UNA VARIABLE AUXILIAR QUE AYUDA A GUARDAR EL TIPO DE DATO ORIGINAL
+                float TipoDeDatoOriginal;
+                TipoDeDatoOriginal = resultado;
+                //VARIABLE PARA PODER GUARDAR EL MODULO
+                int resultadoMod;
+
+                //PRIMERO VERIFICAMOS SI UN TIPO FLOAT , OSEA SI TIENE PUNTO DECIMAL 15.5
+                // Verificar si el valor tiene un punto decimal (es float)
+                if (resultado != Math.Round(resultado))
+                {
+                    //Console.WriteLine("----> AQUI VALE <---" + resultado);
+                    resultado = (float)Math.Round(resultado); //OBTENEMOS EL VALOR SIN EL DECIMAL
+                    //Console.WriteLine("----> AHORA AQUI VALE <---" + resultado);
+                    resultadoMod = (int)resultado % 256; // Realiza el módulo % 256 con el valor ya convertido
+                    return (char)resultadoMod;
+                }
+                else
+                {
+                    resultadoMod = (int)resultado % 256; // Realiza el módulo % 257
+                    resultado = (char)resultadoMod; // Realiza el casting a char
+
+                    if (TipoDeDatoOriginal >= 0 && TipoDeDatoOriginal <= 255)
+                    {
+                        return TipoDeDatoOriginal;
+                    }
+                    else if (TipoDeDatoOriginal >= 257 && TipoDeDatoOriginal <= 65025)
+                    {
+                        return (char)resultadoMod;
+                    }
+                    else
+                    {
+                        return (char)resultadoMod; ;
+                    }
+                }
+                //return (char)(resultado % 256); // Utiliza % para obtener el módulo en el rango de 0 a 256
+            }
+
+            // PARA CASTEAR UN ---> ENTERO <----
+            else if (tipoDato == Variable.TiposDatos.Int)
+            {
+                //DECLARAMOS UNA VARIABLE AUXILIAR QUE AYUDA A GUARDAR EL TIPO DE DATO ORIGINAL
+                float TipoDeDatoOriginal;
+                TipoDeDatoOriginal = resultado;
+
+                //VARIABLE PARA PODER GUARDAR EL MODULO
+                int resultadoMod;
+
+                //PRIMERO VERIFICAMOS SI UN TIPO FLOAT , OSEA SI TIENE PUNTO DECIMAL 15.5
+                // Verificar si el valor tiene un punto decimal (es float)
+                if (resultado != Math.Round(resultado))
+                {
+                    //Console.WriteLine("----> AQUI VALE <---" + resultado);
+                    resultado = (float)Math.Round(resultado); //OBTENEMOS EL VALOR SIN EL DECIMAL
+                    resultadoMod = (int)resultado % 65025; // Realiza el módulo % 65025 con el valor ya convertido
+                    return (char)resultadoMod;
+                }
+                else
+                {
+                    resultadoMod = (int)resultado % 65025; // Realiza el módulo % 257
+                    resultado = (int)resultadoMod; // Realiza el casting a INT
+                                                   //Console.WriteLine("El valor fue casteado a INT y vale: " + resultado);
+                                                   //return resultado;
+
+                    if (TipoDeDatoOriginal >= 0 && TipoDeDatoOriginal <= 255)
+                    {
+                        return resultado;
+                    }
+                    // ---> ENTERO ()YA ES UN DATO DE TIPO ENTERO) <---
+                    if (TipoDeDatoOriginal >= 256 && TipoDeDatoOriginal <= 65025)
+                    {
+                        return resultado;
+
+                    }
+                    // ---> FLOAT <---
+                    else
+                    {
+                        return resultado;
+                    }
+                }
+            }
+
+            else if (tipoDato == Variable.TiposDatos.Float)
+            {
+                float TipoDeDatoOriginal;
+                TipoDeDatoOriginal = resultado;
+
+                // ---> CHAR <---
+                if (TipoDeDatoOriginal >= 0 && TipoDeDatoOriginal <= 255)
+                {
+                    return resultado;
+                }
+                // ---> ENTERO <---
+                if (TipoDeDatoOriginal >= 256 && TipoDeDatoOriginal <= 65025)
+                {
+                    return resultado;
+                }
+                else
+                {
+                    return resultado;
+                }
+
+            }
+            return resultado;
         }
     }
 }

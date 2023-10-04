@@ -1,24 +1,61 @@
-#include<stdio.h>
-#include<math.h>
-#include<iostream>
+#include <stdio.h>
+#include <math.h>
+#include <iostream>
 
-char a;
-int contador, c, i;
+char altura,i,j,k;
 
 void main() // Funcion principal
 {
-    
-    
-    do {
-        printf("\nValor de contador: ", contador);
-        contador++;
+    //k = (int)(10);
+    //k = 1.5;
+    //k = (int)((char)(1.5));
+
+    printf("\nAltura: ");
+    scanf("&i",&altura);
+
+    printf("\nfor:\n");
+    for (i = 1; i <= altura; i++)
+    {
+        for (j = 250; j < 250+i; j++)
+        {
+            if (j%2==0)
+                printf("-");
+            else
+                printf("+");
+        }
+        printf("\n");
     }
-    while(contador <= 10);
-    while( c < 10) {
-        printf("\nValor de c: ", c);
-        c++;
+    printf("\nwhile:\n");
+    i = 1;
+    while (i <= altura)
+    {
+        j = 250;
+        while (j < 250+i)
+        {
+            if (j%2==0)
+                printf("-");
+            else
+                printf("+");
+            j++;
+        }
+        i++;
+        printf("\n");
     }
-    for(i = 0; i < 10;i++) {
-        printf("\nValor de i: ", i);
-    }
+    printf("\ndo:\n");
+    i = 1;
+    do
+    {
+        j = 250;
+        do
+        {
+            if (j%2==0)
+                printf("-");
+            else
+                printf("+");
+            j++;
+        } while (j < 250+i);
+        i++;
+        printf("\n");
+    } while (i <= altura);
+
 }
