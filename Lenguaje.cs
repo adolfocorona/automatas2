@@ -302,14 +302,13 @@ namespace Sintaxis_2
             {
                 Variable.TiposDatos tipoDatoVariable = getTipo(variable);
                 Variable.TiposDatos tipoDatoResultado = getTipo(resultado);
-
-                if (tipoDatoVariable >= tipoDatoResultado)
+                if (tipoDatoVariable >= tipoDatoExpresion)
                 {
                     Modifica(variable, resultado);
                 }
                 else
                 {
-                    throw new Error("de semantica, no se puede asignar in <" + tipoDatoResultado + "> a un <" + tipoDatoVariable + ">", log, linea, columna);
+                    throw new Error("de semantica, no se puede asignar un <" + tipoDatoExpresion + "> a un <" + tipoDatoVariable + ">", log, linea, columna);
                 }
             }
             match(";");
@@ -347,7 +346,6 @@ namespace Sintaxis_2
         //Do -> do BloqueInstrucciones | Instruccion while(Condicion)
         private void Do(bool ejecuta)
         {
-            
             do
             {
                 int inicia = character; // Guarda la posición inicial de character
@@ -680,127 +678,21 @@ namespace Sintaxis_2
                 }
             }
         }
-
-        /*float castea(float resultado, Variable.TiposDatos tipoDato)
-        {
-            float residuo = 0;
-            if (tipoDato == Variable.TiposDatos.Int){
-                residuo = MathF.Round(resultado % 65535, MidpointRounding.AwayFromZero);
-            } 
-            else if (tipoDato == Variable.TiposDatos.Char){
-                residuo = MathF.Round(resultado % 255, MidpointRounding.AwayFromZero);
-            }
-            return residuo;
-        }*/
-
         float castea(float resultado, Variable.TiposDatos tipoDato)
         {
-            //INDICA A QUE TIPO DE DATO VAMOS A CASETAR , EN TESTE CASO  A UN CHAR () => a = (char)(257)
-            if (tipoDato == Variable.TiposDatos.Char)//Esta linea indica en que TIPO DE CASTEO ENTRO (char, int , float)
+            if (tipoDato == Variable.TiposDatos.Char)
             {
-                //DECLARAMOS UNA VARIABLE AUXILIAR QUE AYUDA A GUARDAR EL TIPO DE DATO ORIGINAL
-                float TipoDeDatoOriginal;
-                TipoDeDatoOriginal = resultado;
-                //VARIABLE PARA PODER GUARDAR EL MODULO
-                int resultadoMod;
+                resultado = (float)Math.Round(resultado);
+                resultado = resultado % 256;
 
-                //PRIMERO VERIFICAMOS SI UN TIPO FLOAT , OSEA SI TIENE PUNTO DECIMAL 15.5
-                // Verificar si el valor tiene un punto decimal (es float)
-                if (resultado != Math.Round(resultado))
-                {
-                    //Console.WriteLine("----> AQUI VALE <---" + resultado);
-                    resultado = (float)Math.Round(resultado); //OBTENEMOS EL VALOR SIN EL DECIMAL
-                    //Console.WriteLine("----> AHORA AQUI VALE <---" + resultado);
-                    resultadoMod = (int)resultado % 256; // Realiza el módulo % 256 con el valor ya convertido
-                    return (char)resultadoMod;
-                }
-                else
-                {
-                    resultadoMod = (int)resultado % 256; // Realiza el módulo % 257
-                    resultado = (char)resultadoMod; // Realiza el casting a char
-
-                    if (TipoDeDatoOriginal >= 0 && TipoDeDatoOriginal <= 255)
-                    {
-                        return TipoDeDatoOriginal;
-                    }
-                    else if (TipoDeDatoOriginal >= 257 && TipoDeDatoOriginal <= 65025)
-                    {
-                        return (char)resultadoMod;
-                    }
-                    else
-                    {
-                        return (char)resultadoMod; ;
-                    }
-                }
-                //return (char)(resultado % 256); // Utiliza % para obtener el módulo en el rango de 0 a 256
             }
-
-            // PARA CASTEAR UN ---> ENTERO <----
             else if (tipoDato == Variable.TiposDatos.Int)
             {
-                //DECLARAMOS UNA VARIABLE AUXILIAR QUE AYUDA A GUARDAR EL TIPO DE DATO ORIGINAL
-                float TipoDeDatoOriginal;
-                TipoDeDatoOriginal = resultado;
-
-                //VARIABLE PARA PODER GUARDAR EL MODULO
-                int resultadoMod;
-
-                //PRIMERO VERIFICAMOS SI UN TIPO FLOAT , OSEA SI TIENE PUNTO DECIMAL 15.5
-                // Verificar si el valor tiene un punto decimal (es float)
-                if (resultado != Math.Round(resultado))
-                {
-                    //Console.WriteLine("----> AQUI VALE <---" + resultado);
-                    resultado = (float)Math.Round(resultado); //OBTENEMOS EL VALOR SIN EL DECIMAL
-                    resultadoMod = (int)resultado % 65025; // Realiza el módulo % 65025 con el valor ya convertido
-                    return (char)resultadoMod;
-                }
-                else
-                {
-                    resultadoMod = (int)resultado % 65025; // Realiza el módulo % 257
-                    resultado = (int)resultadoMod; // Realiza el casting a INT
-                                                   //Console.WriteLine("El valor fue casteado a INT y vale: " + resultado);
-                                                   //return resultado;
-
-                    if (TipoDeDatoOriginal >= 0 && TipoDeDatoOriginal <= 255)
-                    {
-                        return resultado;
-                    }
-                    // ---> ENTERO ()YA ES UN DATO DE TIPO ENTERO) <---
-                    if (TipoDeDatoOriginal >= 256 && TipoDeDatoOriginal <= 65025)
-                    {
-                        return resultado;
-
-                    }
-                    // ---> FLOAT <---
-                    else
-                    {
-                        return resultado;
-                    }
-                }
-            }
-
-            else if (tipoDato == Variable.TiposDatos.Float)
-            {
-                float TipoDeDatoOriginal;
-                TipoDeDatoOriginal = resultado;
-
-                // ---> CHAR <---
-                if (TipoDeDatoOriginal >= 0 && TipoDeDatoOriginal <= 255)
-                {
-                    return resultado;
-                }
-                // ---> ENTERO <---
-                if (TipoDeDatoOriginal >= 256 && TipoDeDatoOriginal <= 65025)
-                {
-                    return resultado;
-                }
-                else
-                {
-                    return resultado;
-                }
+                resultado = (float)Math.Round(resultado);
+                resultado = resultado % 65536;
 
             }
             return resultado;
         }
-    }
+    } 
 }
