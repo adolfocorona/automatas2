@@ -304,6 +304,7 @@ namespace Sintaxis_2
                 Variable.TiposDatos tipoDatoResultado = getTipo(resultado);
                 if (tipoDatoVariable >= tipoDatoExpresion)
                 {
+                    tipoDatoExpresion = tipoDatoResultado;
                     Modifica(variable, resultado);
                 }
                 else
@@ -684,13 +685,11 @@ namespace Sintaxis_2
             {
                 resultado = (float)Math.Round(resultado);
                 resultado = resultado % 256;
-
             }
             else if (tipoDato == Variable.TiposDatos.Int)
             {
                 resultado = (float)Math.Round(resultado);
                 resultado = resultado % 65536;
-
             }
             return resultado;
         }

@@ -8,7 +8,7 @@ void main() // Funcion principal
 {
     //k = (int)(10);
     //k = 1.5;
-    k = (int)((char)(1.5));
+    k = (float)(7.5);
 
     printf("\nAltura: ");
     scanf("&i",&altura);

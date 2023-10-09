@@ -1,5 +1,5 @@
 Autor: Adolfo Cortés Corona
-04/10/2023 08:41:29 p. m.
+05/10/2023 09:20:08 p. m.
 # | Caracter
 include | Identificador
 < | OperadorRelacional
@@ -36,15 +36,10 @@ main | Identificador
 k | Identificador
 k = = | Asignacion
 ( | Caracter
-int | TipoDato
+float | TipoDato
 ) | Caracter
 ( | Caracter
-( | Caracter
-char | TipoDato
-) | Caracter
-( | Caracter
-1.5 | Numero
-) | Caracter
+7.5 | Numero
 ) | Caracter
 ; | FinSentencia
-Error: de semantica, no se puede asignar un <Int> a un <Char> en la linea 11 columna 28
+Error: de semantica, no se puede asignar un <Float> a un <Char> en la linea 11 columna 22
