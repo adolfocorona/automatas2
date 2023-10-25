@@ -57,7 +57,7 @@ namespace Sintaxis_2
         };
         protected StreamReader archivo;
         protected StreamWriter log;
-
+        protected StreamWriter asm;
         protected int character;
         protected int character2;
         protected int character3;
@@ -68,9 +68,13 @@ namespace Sintaxis_2
             DateTime myValue = DateTime.Now;
             linea = columna = character = 1;
             log = new StreamWriter("prueba.log");
+            asm = new StreamWriter("prueba.asm");
             log.WriteLine("Autor: Adolfo Cortés Corona");
             log.WriteLine(myValue.ToShortDateString() + " " + myValue.ToLongTimeString());
             log.AutoFlush = true;
+            asm.AutoFlush = true;
+            asm.WriteLine(";Autor: Adolfo Cortés Corona");
+            asm.WriteLine(";" + myValue.ToShortDateString() + " " + myValue.ToLongTimeString());
             if (File.Exists("prueba.cpp"))
             {
                 archivo = new StreamReader("prueba.cpp");
@@ -85,9 +89,13 @@ namespace Sintaxis_2
             DateTime myValue = DateTime.Now;
             linea = columna = character = 1;
             log = new StreamWriter(Path.GetFileNameWithoutExtension(nombre) + ".log");
+            asm = new StreamWriter(Path.GetFileNameWithoutExtension(nombre) + ".asm");
             log.WriteLine("Autor: Adolfo Cortés Corona");
             log.WriteLine(myValue.ToShortDateString() + " " + myValue.ToLongTimeString());
             log.AutoFlush = true;
+            asm.AutoFlush = true;
+            asm.WriteLine(";Autor: Adolfo Cortés Corona");
+            asm.WriteLine(";" + myValue.ToShortDateString() + " " + myValue.ToLongTimeString());
             if (Path.GetExtension(nombre) != ".cpp")
             {
                 throw new Error("El archivo " + nombre + " no tiene extension CPP", log, linea, columna);
@@ -106,6 +114,7 @@ namespace Sintaxis_2
         {
             archivo.Close();
             log.Close();
+            asm.Close();
         }
         private int Columna(char t)
         {

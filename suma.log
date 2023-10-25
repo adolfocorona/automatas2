@@ -1,5 +1,5 @@
 Autor: Adolfo Cortés Corona
-05/10/2023 09:20:08 p. m.
+23/10/2023 09:50:35 p. m.
 # | Caracter
 include | Identificador
 < | OperadorRelacional
@@ -19,7 +19,7 @@ include | Identificador
 < | OperadorRelacional
 iostream | Identificador
 > | OperadorRelacional
-char | TipoDato
+int | TipoDato
 altura | Identificador
 , | Caracter
 i | Identificador
@@ -33,13 +33,231 @@ main | Identificador
 ( | Caracter
 ) | Caracter
 { | Inicio
-k | Identificador
-k = = | Asignacion
+while | Ciclo
 ( | Caracter
-float | TipoDato
+i | Identificador
+< | OperadorRelacional
+10 | Numero
 ) | Caracter
+{ | Inicio
+printf | Identificador
 ( | Caracter
-7.5 | Numero
+"" | Cadena
+, | Caracter
+i | Identificador
 ) | Caracter
 ; | FinSentencia
-Error: de semantica, no se puede asignar un <Float> a un <Char> en la linea 11 columna 22
+i | Identificador
+i = ++ | IncrementoTermino
+; | FinSentencia
+ = 1
+} | Fin
+} | Fin
+while | Ciclo
+( | Caracter
+i | Identificador
+< | OperadorRelacional
+10 | Numero
+) | Caracter
+{ | Inicio
+printf | Identificador
+( | Caracter
+"" | Cadena
+, | Caracter
+i | Identificador
+) | Caracter
+; | FinSentencia
+i | Identificador
+i = ++ | IncrementoTermino
+; | FinSentencia
+ = 2
+} | Fin
+} | Fin
+while | Ciclo
+( | Caracter
+i | Identificador
+< | OperadorRelacional
+10 | Numero
+) | Caracter
+{ | Inicio
+printf | Identificador
+( | Caracter
+"" | Cadena
+, | Caracter
+i | Identificador
+) | Caracter
+; | FinSentencia
+i | Identificador
+i = ++ | IncrementoTermino
+; | FinSentencia
+ = 3
+} | Fin
+} | Fin
+while | Ciclo
+( | Caracter
+i | Identificador
+< | OperadorRelacional
+10 | Numero
+) | Caracter
+{ | Inicio
+printf | Identificador
+( | Caracter
+"" | Cadena
+, | Caracter
+i | Identificador
+) | Caracter
+; | FinSentencia
+i | Identificador
+i = ++ | IncrementoTermino
+; | FinSentencia
+ = 4
+} | Fin
+} | Fin
+while | Ciclo
+( | Caracter
+i | Identificador
+< | OperadorRelacional
+10 | Numero
+) | Caracter
+{ | Inicio
+printf | Identificador
+( | Caracter
+"" | Cadena
+, | Caracter
+i | Identificador
+) | Caracter
+; | FinSentencia
+i | Identificador
+i = ++ | IncrementoTermino
+; | FinSentencia
+ = 5
+} | Fin
+} | Fin
+while | Ciclo
+( | Caracter
+i | Identificador
+< | OperadorRelacional
+10 | Numero
+) | Caracter
+{ | Inicio
+printf | Identificador
+( | Caracter
+"" | Cadena
+, | Caracter
+i | Identificador
+) | Caracter
+; | FinSentencia
+i | Identificador
+i = ++ | IncrementoTermino
+; | FinSentencia
+ = 6
+} | Fin
+} | Fin
+while | Ciclo
+( | Caracter
+i | Identificador
+< | OperadorRelacional
+10 | Numero
+) | Caracter
+{ | Inicio
+printf | Identificador
+( | Caracter
+"" | Cadena
+, | Caracter
+i | Identificador
+) | Caracter
+; | FinSentencia
+i | Identificador
+i = ++ | IncrementoTermino
+; | FinSentencia
+ = 7
+} | Fin
+} | Fin
+while | Ciclo
+( | Caracter
+i | Identificador
+< | OperadorRelacional
+10 | Numero
+) | Caracter
+{ | Inicio
+printf | Identificador
+( | Caracter
+"" | Cadena
+, | Caracter
+i | Identificador
+) | Caracter
+; | FinSentencia
+i | Identificador
+i = ++ | IncrementoTermino
+; | FinSentencia
+ = 8
+} | Fin
+} | Fin
+while | Ciclo
+( | Caracter
+i | Identificador
+< | OperadorRelacional
+10 | Numero
+) | Caracter
+{ | Inicio
+printf | Identificador
+( | Caracter
+"" | Cadena
+, | Caracter
+i | Identificador
+) | Caracter
+; | FinSentencia
+i | Identificador
+i = ++ | IncrementoTermino
+; | FinSentencia
+ = 9
+} | Fin
+} | Fin
+while | Ciclo
+( | Caracter
+i | Identificador
+< | OperadorRelacional
+10 | Numero
+) | Caracter
+{ | Inicio
+printf | Identificador
+( | Caracter
+"" | Cadena
+, | Caracter
+i | Identificador
+) | Caracter
+; | FinSentencia
+i | Identificador
+i = ++ | IncrementoTermino
+; | FinSentencia
+ = 10
+} | Fin
+} | Fin
+while | Ciclo
+( | Caracter
+i | Identificador
+< | OperadorRelacional
+10 | Numero
+) | Caracter
+{ | Inicio
+printf | Identificador
+( | Caracter
+"" | Cadena
+, | Caracter
+i | Identificador
+) | Caracter
+; | FinSentencia
+i | Identificador
+i = ++ | IncrementoTermino
+; | FinSentencia
+ = 11
+} | Fin
+} | Fin
+-----------------
+V a r i a b l e s
+-----------------
+altura Int = 0
+i Int = 10
+j Int = 0
+k Int = 0
+-----------------
