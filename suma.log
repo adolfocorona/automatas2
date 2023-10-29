@@ -1,5 +1,5 @@
 Autor: Adolfo Cortés Corona
-23/10/2023 09:50:35 p. m.
+25/10/2023 02:26:12 p. m.
 # | Caracter
 include | Identificador
 < | OperadorRelacional
@@ -19,7 +19,7 @@ include | Identificador
 < | OperadorRelacional
 iostream | Identificador
 > | OperadorRelacional
-int | TipoDato
+char | TipoDato
 altura | Identificador
 , | Caracter
 i | Identificador
@@ -28,236 +28,74 @@ j | Identificador
 , | Caracter
 k | Identificador
 ; | FinSentencia
+int | TipoDato
+m | Identificador
+; | FinSentencia
+int | TipoDato
+p | Identificador
+; | FinSentencia
 void | Identificador
 main | Identificador
 ( | Caracter
 ) | Caracter
 { | Inicio
-while | Ciclo
+printf | Identificador
 ( | Caracter
-i | Identificador
-< | OperadorRelacional
-10 | Numero
+"\ndame un numero: " | Cadena
+) | Caracter
+; | FinSentencia
+scanf | Identificador
+( | Caracter
+"&i" | Cadena
+, | Caracter
+& | Caracter
+altura | Identificador
+) | Caracter
+; | FinSentencia
+if | Condicion
+( | Caracter
+altura | Identificador
+== | OperadorRelacional
+3 | Numero
 ) | Caracter
 { | Inicio
 printf | Identificador
 ( | Caracter
-"" | Cadena
-, | Caracter
-i | Identificador
+"Hola" | Cadena
 ) | Caracter
 ; | FinSentencia
-i | Identificador
-i = ++ | IncrementoTermino
-; | FinSentencia
- = 1
 } | Fin
-} | Fin
-while | Ciclo
+else | Condicion
+{ | Inicio
+if | Condicion
 ( | Caracter
-i | Identificador
-< | OperadorRelacional
-10 | Numero
+altura | Identificador
+== | OperadorRelacional
+5 | Numero
 ) | Caracter
 { | Inicio
 printf | Identificador
 ( | Caracter
-"" | Cadena
-, | Caracter
-i | Identificador
+"5" | Cadena
 ) | Caracter
 ; | FinSentencia
-i | Identificador
-i = ++ | IncrementoTermino
-; | FinSentencia
- = 2
 } | Fin
-} | Fin
-while | Ciclo
-( | Caracter
-i | Identificador
-< | OperadorRelacional
-10 | Numero
-) | Caracter
+else | Condicion
 { | Inicio
 printf | Identificador
 ( | Caracter
-"" | Cadena
-, | Caracter
-i | Identificador
+"Cualquier cosa" | Cadena
 ) | Caracter
 ; | FinSentencia
-i | Identificador
-i = ++ | IncrementoTermino
-; | FinSentencia
- = 3
-} | Fin
-} | Fin
-while | Ciclo
-( | Caracter
-i | Identificador
-< | OperadorRelacional
-10 | Numero
-) | Caracter
-{ | Inicio
-printf | Identificador
-( | Caracter
-"" | Cadena
-, | Caracter
-i | Identificador
-) | Caracter
-; | FinSentencia
-i | Identificador
-i = ++ | IncrementoTermino
-; | FinSentencia
- = 4
-} | Fin
-} | Fin
-while | Ciclo
-( | Caracter
-i | Identificador
-< | OperadorRelacional
-10 | Numero
-) | Caracter
-{ | Inicio
-printf | Identificador
-( | Caracter
-"" | Cadena
-, | Caracter
-i | Identificador
-) | Caracter
-; | FinSentencia
-i | Identificador
-i = ++ | IncrementoTermino
-; | FinSentencia
- = 5
-} | Fin
-} | Fin
-while | Ciclo
-( | Caracter
-i | Identificador
-< | OperadorRelacional
-10 | Numero
-) | Caracter
-{ | Inicio
-printf | Identificador
-( | Caracter
-"" | Cadena
-, | Caracter
-i | Identificador
-) | Caracter
-; | FinSentencia
-i | Identificador
-i = ++ | IncrementoTermino
-; | FinSentencia
- = 6
-} | Fin
-} | Fin
-while | Ciclo
-( | Caracter
-i | Identificador
-< | OperadorRelacional
-10 | Numero
-) | Caracter
-{ | Inicio
-printf | Identificador
-( | Caracter
-"" | Cadena
-, | Caracter
-i | Identificador
-) | Caracter
-; | FinSentencia
-i | Identificador
-i = ++ | IncrementoTermino
-; | FinSentencia
- = 7
-} | Fin
-} | Fin
-while | Ciclo
-( | Caracter
-i | Identificador
-< | OperadorRelacional
-10 | Numero
-) | Caracter
-{ | Inicio
-printf | Identificador
-( | Caracter
-"" | Cadena
-, | Caracter
-i | Identificador
-) | Caracter
-; | FinSentencia
-i | Identificador
-i = ++ | IncrementoTermino
-; | FinSentencia
- = 8
-} | Fin
-} | Fin
-while | Ciclo
-( | Caracter
-i | Identificador
-< | OperadorRelacional
-10 | Numero
-) | Caracter
-{ | Inicio
-printf | Identificador
-( | Caracter
-"" | Cadena
-, | Caracter
-i | Identificador
-) | Caracter
-; | FinSentencia
-i | Identificador
-i = ++ | IncrementoTermino
-; | FinSentencia
- = 9
-} | Fin
-} | Fin
-while | Ciclo
-( | Caracter
-i | Identificador
-< | OperadorRelacional
-10 | Numero
-) | Caracter
-{ | Inicio
-printf | Identificador
-( | Caracter
-"" | Cadena
-, | Caracter
-i | Identificador
-) | Caracter
-; | FinSentencia
-i | Identificador
-i = ++ | IncrementoTermino
-; | FinSentencia
- = 10
-} | Fin
-} | Fin
-while | Ciclo
-( | Caracter
-i | Identificador
-< | OperadorRelacional
-10 | Numero
-) | Caracter
-{ | Inicio
-printf | Identificador
-( | Caracter
-"" | Cadena
-, | Caracter
-i | Identificador
-) | Caracter
-; | FinSentencia
-i | Identificador
-i = ++ | IncrementoTermino
-; | FinSentencia
- = 11
 } | Fin
 } | Fin
 -----------------
 V a r i a b l e s
 -----------------
-altura Int = 0
-i Int = 10
-j Int = 0
-k Int = 0
+altura Char = 5
+i Char = 0
+j Char = 0
+k Char = 0
+m Int = 0
+p Int = 0
 -----------------

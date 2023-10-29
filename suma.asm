@@ -1,25 +1,41 @@
 ;Autor: Adolfo Cortés Corona
-;23/10/2023 09:50:35 p. m.
+;25/10/2023 02:26:12 p. m.
 include 'emu8086.inc'
 org 100h
-; While 1
-InicioWhile1:
-MOV AX, i
+print ''
+printn ' '
+print 'dame un numero: '
+call scan_num
+MOV altura, CX
+; if: 1
+MOV AX, altura
 PUSH AX
-MOV AX, 10
+MOV AX, 3
 PUSH AX
 POP BX
 POP AX
 CMP AX, BX
-JAE FinWhile1
-print ''
-MOV AX,i
-call print_num
-MOV AX, i
-INC AX
-MOV i, AX
-JMP InicioWhile1
-FinWhile1:
+JNE Eif1
+print 'Hola'
+; else: 1
+JMP Eelse1
+Eif1:
+; if: 2
+MOV AX, altura
+PUSH AX
+MOV AX, 5
+PUSH AX
+POP BX
+POP AX
+CMP AX, BX
+JNE Eif2
+print '5'
+; else: 2
+JMP Eelse2
+Eif2:
+print 'Cualquier cosa'
+Eelse2:
+Eelse1:
 int 20h
 RET
 define_scan_num
@@ -30,4 +46,6 @@ altura dw 0h
 i dw 0h
 j dw 0h
 k dw 0h
+m dw 0h
+p dw 0h
 END
