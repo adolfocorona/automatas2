@@ -977,6 +977,7 @@ namespace Sintaxis_2
             {
                 resultado = (float)Math.Round(resultado);
                 asm.WriteLine("MOV BX, 256");
+                asm.WriteLine("MOV AX, " + resultado);
                 resultado = resultado % 256;
                 asm.WriteLine("DIV BX");
                 asm.WriteLine("PUSH DX");
