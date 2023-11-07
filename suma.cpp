@@ -1,29 +1,61 @@
 #include <stdio.h>
 #include <math.h>
 #include <iostream>
-char altura, i, j, k;
-int m;
-int p;
-// int b;
+
+char altura,i,j,k;
 
 void main() // Funcion principal
 {
-    printf("\ndame un numero: ");
-    scanf("&i", &altura);
+   // k = (int)(10);
+   // k = 1.5;
+   // k = (int)((char)(1.5));
 
-    if (altura == 3)
+    printf("\nAltura: ");
+    scanf("&i",&altura);
+
+    printf("\nfor:\n");
+    for (i = 1; i < altura; i++)
     {
-        printf("Hola");
+        for (j = 250; j < 250+i; j++)
+        {
+            if (j%2==0)
+                printf("-");
+            else
+                printf("+");
+        }
+        printf("\n");
     }
-    else
+    printf("\nwhile:\n");
+    i = 1;
+    while (i <= altura)
     {
-        if (altura == 5)
+        j = 250;
+        while (j < 250+i)
         {
-            printf("5");
+            if (j%2==0)
+                printf("-");
+            else
+                printf("+");
+            j++;
         }
-        else
-        {
-            printf("Cualquier cosa");
-        }
+        i++;
+        printf("\n");
     }
+    printf("\ndo:\n");
+    i = 1;
+    do
+    {
+        j = 250;
+        do
+        {
+            if (j%2==0)
+                printf("-");
+            else
+                printf("+");
+            j++;
+        } while (j < 250+i);
+        i++;
+        printf("\n");
+    } while (i <= altura);
+
 }

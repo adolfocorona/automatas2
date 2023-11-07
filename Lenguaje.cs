@@ -681,7 +681,7 @@ namespace Sintaxis_2
                 }
                 if (primeraVez)
                 {
-                    asm.WriteLine(etiquetaE + ":");
+                    asm.WriteLine(etiqueta + ":");
                 }
 
                 if (getContenido() == "{")
